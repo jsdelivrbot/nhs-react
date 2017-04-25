@@ -13,7 +13,7 @@ const reducerList = (state = [], action) => {
     case ADD_ACTIVITY:
     case ADD_SPONSOR:
       const ids = state.map(obj => obj.id);
-      const max = Math.max(...ids);
+      const max = Math.max(...ids, -1);
       return [...state, { id: max + 1, desc: action.payload }];
     case DEL_ACTIVITY:
     case DEL_SPONSOR:
@@ -23,7 +23,7 @@ const reducerList = (state = [], action) => {
   }
 }
 
-export const reducerLeadership = (state = INITIAL, action) => {
+export const reducerLeadership = (state = INITIAL, action) => {  
   switch(action.type) {
     case ADD_ACTIVITY:
     case DEL_ACTIVITY:

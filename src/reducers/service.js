@@ -13,14 +13,16 @@ const INITIAL = {
 
 const reducerParticipation = (state = INITIAL.participation, action) => {
   switch(action.type) {
-    case SET_PARTICIPATION:
+    case SET_PARTICIPATION: {
       let p = [...state];
       p[action.payload.grade - 9] = action.payload.desc;
       return p;
-    case DEL_PARTICIPATION:
+    }
+    case DEL_PARTICIPATION: {
       let p = [...state];
       p[action.payload - 9] = null;
       return p;
+    }
     default:
       return state;
   }
