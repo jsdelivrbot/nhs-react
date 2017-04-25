@@ -15,26 +15,34 @@ class SponsorList extends Component {
 
   onAddSponsor(e) {
     e.preventDefault();
-    this.props.addSponsor(this.state.addSponsor);
-    this.setState({ addSponsor: '' });
+    if (/\S/.test(this.state.addSponsor)) {
+      this.props.addSponsor(this.state.addSponsor.trim());
+      this.setState({ addSponsor: '' });
+    }
   }
 
   render() {
     return (
-      <ul className="list-group">
-        <li className="list-group-item">
-          <form onSubmit={this.onAddSponsor.bind(this)}>
-            <div className="input-group">
-              <input className="form-control" type="text" value={this.state.addSponsor} onChange={this.onAddSponsorChange.bind(this)} />
-              <span className="input-group-btn">
-                <button type="submit" className="btn btn-primary">Add</button>
-              </span>
-              
-            </div>
-          </form>
-        </li>
+      <div>
+      <h3>Faculty Sponsors</h3>
+      <p>A faculty sponsor can be a teacher, coach, administrator, or advisor.</p>
+      <form onSubmit={this.onAddSponsor.bind(this)}>
+        <div className="input-group">
+          <input
+            className="form-control"
+            type="text"
+            value={this.state.addSponsor}
+            onChange={this.onAddSponsorChange.bind(this)}
+            placeholder="Add a faculty sponsor" />
+          <span className="input-group-btn">
+            <button type="submit" className="btn btn-primary">Add</button>
+          </span>              
+        </div>
+      </form>
+      <ul className="list-group">        
         { this.props.sponsors.map((sponsor) => <SponsorItem key={sponsor.id} sponsor={sponsor} />) }
       </ul>
+      </div>
     );
   }
 }
