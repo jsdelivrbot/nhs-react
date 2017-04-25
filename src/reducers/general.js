@@ -1,3 +1,7 @@
+export const GEN_SET_FIRST = 'GEN_SET_FIRST';
+export const GEN_SET_LAST = 'GEN_SET_LAST';
+export const GEN_SET_CERTIFIED = 'GEN_SET_CERTIFIED';
+
 const INITIAL = {
   name: {
     first: '',
@@ -17,7 +21,7 @@ const reducerName = (state = INITIAL.name, action) => {
   }
 }
 
-export default reducerGeneral = (state = INITIAL, action) => {
+export const reducerGeneral = (state = INITIAL, action) => {
   switch(action.type) {
     case GEN_SET_FIRST:
     case GEN_SET_LAST:
