@@ -1,6 +1,6 @@
-export const GEN_SET_FIRST = 'GEN_SET_FIRST';
-export const GEN_SET_LAST = 'GEN_SET_LAST';
-export const GEN_SET_CERTIFIED = 'GEN_SET_CERTIFIED';
+export const SET_FIRST = 'SET_FIRST';
+export const SET_LAST = 'SET_LAST';
+export const SET_CERTIFIED = 'SET_CERTIFIED';
 
 const INITIAL = {
   name: {
@@ -12,9 +12,9 @@ const INITIAL = {
 
 const reducerName = (state = INITIAL.name, action) => {
   switch(action.type) {
-    case GEN_SET_FIRST:
+    case SET_FIRST:
       return { ...state, first: action.payload };
-    case GEN_SET_LAST:
+    case SET_LAST:
       return { ...state, last: action.payload };
     default:
       return state;
@@ -23,10 +23,10 @@ const reducerName = (state = INITIAL.name, action) => {
 
 export const reducerGeneral = (state = INITIAL, action) => {
   switch(action.type) {
-    case GEN_SET_FIRST:
-    case GEN_SET_LAST:
+    case SET_FIRST:
+    case SET_LAST:
       return { ...state, name: reducerName(state.name, action) };
-    case GEN_SET_CERTIFIED:
+    case SET_CERTIFIED:
       return { ...state, certified: action.payload };
         default:
       return state;
