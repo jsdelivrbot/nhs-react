@@ -11,7 +11,7 @@ const INITIAL = {
   outSchool: []
 }
 
-const reduceParticipation = (state = INITIAL.participation, action) => {
+const reducerParticipation = (state = INITIAL.participation, action) => {
   switch(action.type) {
     case SET_PARTICIPATION:
       let p = [...state];
@@ -41,12 +41,12 @@ const reducerList = (state = [], action) => {
   }
 }
 
-export const reduceService = (state = INITIAL, action) => {
+export const reducerService = (state = INITIAL, action) => {
   switch(action.type) {
     case SET_PARTICIPATION:
     case DEL_PARTICIPATION:
       return {
-        participation: reduceParticipation(state.participation, action),
+        participation: reducerParticipation(state.participation, action),
         inSchool: state.inSchool,
         outSchool: state.outSchool
       };
