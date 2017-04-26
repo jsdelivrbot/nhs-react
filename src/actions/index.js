@@ -58,7 +58,7 @@ export const delParticipation = (grade) => {
 export const addInSchool = (hours, desc) => {
   return {
     type: ADD_IN_SCHOOL,
-    payload: { hours, dsec }
+    payload: { hours, desc }
   };
 };
 

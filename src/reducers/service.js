@@ -33,7 +33,7 @@ const reducerList = (state = [], action) => {
     case ADD_IN_SCHOOL:
     case ADD_OUT_SCHOOL:
       const ids = state.map(obj => obj.id);
-      const max = Math.max(...ids);
+      const max = Math.max(...ids, -1);
       return [...state, { id: max + 1, hours: action.payload.hours, desc: action.payload.desc }];
     case DEL_IN_SCHOOL:
     case DEL_OUT_SCHOOL:
